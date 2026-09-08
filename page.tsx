@@ -1,0 +1,1 @@
+export default function Page(){return <main><h1>YIELDGUARD</h1><p>Autonomous Onchain Treasury</p><section><h2>$1,000</h2><p>Wallet value</p></section><section><h2>Policy</h2><p>Max exposure: 30% · Auto limit: $300 · Verified contracts: ON</p></section><section><h2>Activity</h2><p>✓ Scanned opportunities · ⚠ Rejected high-risk pool · ⏸ Approval required</p></section></main>}

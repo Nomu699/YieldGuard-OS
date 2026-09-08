@@ -1,0 +1,4 @@
+import { describe,it,expect } from 'vitest';
+import { evaluatePolicy } from '../src/policy/engine.js';
+const policy={maxProtocolExposurePct:30,maxAutoTransactionUsd:300,maxSlippageBps:50,minLiquidityUsd:100000,requireVerifiedContract:true,allowedChains:['DemoChain'],allowedProtocols:['Conservative Pool']};
+describe('policy engine',()=>{it('blocks unknown contracts',()=>expect(evaluatePolicy({protocol:'Conservative Pool',chain:'DemoChain',amountUsd:100,slippageBps:10,contractVerified:false,postPositionPct:10,liquidityUsd:1e6},policy).decision).toBe('BLOCK'));it('requires confirmation above limit',()=>expect(evaluatePolicy({protocol:'Conservative Pool',chain:'DemoChain',amountUsd:400,slippageBps:10,contractVerified:true,postPositionPct:10,liquidityUsd:1e6},policy).decision).toBe('CONFIRM'));});
